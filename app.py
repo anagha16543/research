@@ -234,6 +234,10 @@ elif speech_text and speech_text.strip():
 # ASK QUESTION
 # ==========================================================
 
+# ==========================================================
+# ASK QUESTION
+# ==========================================================
+
 if question:
 
     # Prevent duplicate processing
@@ -256,10 +260,6 @@ if question:
         except Exception as e:
 
             st.error(f"Error:\n\n{e}")
-
-    except Exception as e:
-
-        st.error(f"Error:\n\n{str(e)}")
 # ==========================================================
 # DISPLAY LATEST RESPONSE
 # ==========================================================
