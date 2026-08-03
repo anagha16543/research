@@ -230,21 +230,61 @@ elif speech_text and speech_text.strip():
 # ASK QUESTION
 # ==========================================================
 
+# ==========================================================
+# ASK QUESTION
+# ==========================================================
+
 if question:
 
-    try:
+    # Prevent duplicate processing
+    if st.session_state.get("last_question") != question:
 
-        with st.spinner("🤖 Thinking..."):
+        st.session_state.last_question = question
 
-            ask_question(
-                persona=persona,
-                question=question,
-                uploaded_files=uploaded_files
-            )
+        try:
 
-        # Refresh page to display updated history
-        st.rerun()
+            with st.spinner("🤖 Thinking..."):
+
+                answer = ask_question(
+                    persona=persona,
+                    question=question,
+                    uploaded_files=uploaded_files
+                )
+
+            st.session_state.last_answer = answer
+
+        except Exception as e:
+
+            st.error(f"Error:\n\n{e}")
 
     except Exception as e:
 
         st.error(f"Error:\n\n{str(e)}")
+# ==========================================================
+# DISPLAY LATEST RESPONSE
+# ==========================================================
+
+if "last_answer" in st.session_state:
+
+    st.success("✅ Response Generated")
+
+
+# ==========================================================
+# FOOTER
+# ==========================================================
+
+st.divider()
+
+st.markdown(
+"""
+---
+Made with ❤️ using
+
+- Streamlit
+- Groq Llama 3
+- Groq Whisper
+- LangChain
+- FAISS
+- HuggingFace Embeddings
+"""
+)
