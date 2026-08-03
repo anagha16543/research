@@ -1,23 +1,22 @@
-streamlit==1.45.1
+streamlit
 
-langchain==0.3.25
-langchain-core==0.3.59
-langchain-community==0.3.24
-langchain-groq==0.3.2
-langchain-huggingface==0.2.0
-langchain-text-splitters==0.3.8
+langchain
+langchain-core
+langchain-community
+langchain-groq
+langchain-huggingface
+langchain-text-splitters
 
-groq==0.26.0
+groq
 
-faiss-cpu==1.11.0
+faiss-cpu==1.14.3
 
-sentence-transformers==4.1.0
+sentence-transformers
 
-pandas==2.2.3
-openpyxl==3.1.5
+pandas
+openpyxl
+pypdf
 
-pypdf==5.5.0
+python-dotenv
 
-python-dotenv==1.1.0
-
-streamlit-mic-recorder==0.0.8
+streamlit-mic-recorder
